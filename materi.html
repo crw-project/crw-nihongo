@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>CRW NIHONGO - Materi</title>
+<style>
+body{margin:0;font-family:sans-serif;background:#fff0f5}
+.header{background:#e91e63;color:white;padding:20px;text-align:center;position:sticky;top:0;z-index:10}
+.container{padding:15px;max-width:700px;margin:auto}
+.card{background:white;padding:20px;border-radius:20px;margin-bottom:15px;box-shadow:0 4px 12px rgba(0,0,0,.08)}
+.bab{background:#e91e63;color:white;padding:12px 18px;border-radius:30px;display:inline-block;margin-bottom:12px;font-weight:bold}
+.kata{display:flex;justify-content:space-between;padding:10px 0;border-bottom:1px solid #f0f0f0}
+.kata b{color:#333}
+.kata span{color:#e91e63;font-weight:bold}
+.video{background:#111;color:white;text-align:center;padding:40px 20px;border-radius:15px;margin:10px 0}
+button.logout{background:#333;color:white;border:none;padding:10px 20px;border-radius:20px;margin-top:20px}
+</style>
+</head>
+<body>
+<div class="header">
+<h2 style="margin:0">🌸 CRW NIHONGO</h2>
+<p id="user" style="margin:5px 0 0;opacity:.9"></p>
+</div>
+
+<div class="container">
+
+<div class="card">
+<div class="bab">BAB 1: Aisatsu - Salam</div>
+<div class="kata"><b>Ohayou Gozaimasu</b><span>Selamat Pagi</span></div>
+<div class="kata"><b>Konnichiwa</b><span>Selamat Siang</span></div>
+<div class="kata"><b>Konbanwa</b><span>Selamat Malam</span></div>
+<div class="kata"><b>Oyasuminasai</b><span>Selamat Tidur</span></div>
+<div class="kata"><b>Arigatou Gozaimasu</b><span>Terima Kasih</span></div>
+</div>
+
+<div class="card">
+<div class="bab">BAB 2: Jikoshoukai - Perkenalan</div>
+<div class="kata"><b>Watashi wa ... desu</b><span>Saya adalah ...</span></div>
+<div class="kata"><b>Hajimemashite</b><span>Senang bertemu</span></div>
+<div class="kata"><b>Yoroshiku Onegaishimasu</b><span>Mohon bantuannya</span></div>
+</div>
+
+<div class="card">
+<div class="bab">BAB 3: Kazu - Angka</div>
+<div class="kata"><b>Ichi, Ni, San</b><span>1, 2, 3</span></div>
+<div class="kata"><b>Yon, Go, Roku</b><span>4, 5, 6</span></div>
+<div class="kata"><b>Shichi, Hachi, Kyuu, Juu</b><span>7, 8, 9, 10</span></div>
+</div>
+
+<div class="card">
+<div class="bab">BAB 4: Tugas Hari Ini</div>
+<p>Rekam suara kamu perkenalan diri: <br><b>"Hajimemashite, watashi wa [nama] desu. Yoroshiku!"</b></p>
+<div class="video">🎥 Tempat Video YouTube Nanti<br>(Bisa kakak ganti)</div>
+<p style="font-size:13px;color:#666">Kirim tugas ke WhatsApp Sensei ya!</p>
+<button class="logout" onclick="logout()">Keluar Kelas</button>
+</div>
+
+</div>
+
+<script>
+let kode=localStorage.getItem("crw_login");
+if(!kode){window.location.href="index.html";}
+document.getElementById("user").innerText="Kode Aktif: "+kode;
+function logout(){localStorage.removeItem("crw_login");window.location.href="index.html";}
+</script>
+</body>
+  </html>
