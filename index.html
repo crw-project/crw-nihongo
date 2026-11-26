@@ -1,32 +1,41 @@
 <!DOCTYPE html>
-<html>
+<html lang="id">
 <head>
 <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width">
-<title>Mihongo</title>
-<script src="https://cdn.tailwindcss.com"></script>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>CRW NIHONGO - Login Siswa</title>
+<style>
+body{margin:0;font-family:Arial;background:linear-gradient(135deg,#ff9a9e,#fecfef);min-height:100vh;display:flex;align-items:center;justify-content:center}
+.card{background:white;padding:30px;border-radius:20px;box-shadow:0 10px 30px rgba(0,0,0,0.2);width:90%;max-width:350px;text-align:center}
+h1{color:#e91e63;margin:0 0 5px}
+p{color:#666;font-size:14px}
+input{width:100%;padding:12px;margin:15px 0;border:2px solid #ffcdd2;border-radius:10px;font-size:16px;text-transform:uppercase;box-sizing:border-box}
+button{width:100%;padding:12px;background:#e91e63;color:white;border:none;border-radius:10px;font-size:16px;font-weight:bold;cursor:pointer}
+button:hover{background:#c2185b}
+.error{color:red;font-size:13px;margin-top:10px;display:none}
+small{color:#999;font-size:11px;display:block;margin-top:15px}
+</style>
 </head>
-<body class="bg-pink-50">
-<header class="bg-white p-4 flex justify-between shadow">
-<div class="flex gap-2 items-center">
-<div class="w-10 h-10 bg-pink-500 rounded-full flex items-center justify-center text-white font-bold">M</div>
-<span class="font-bold">MIHONGO</span>
+<body>
+<div class="card">
+<h1>🌸 CRW NIHONGO</h1>
+<p>Belajar Bahasa Jepang Seru!</p>
+<input type="text" id="kode" placeholder="MASUKKAN KODE AKSES">
+<button onclick="login()">MASUK KELAS →</button>
+<div id="err" class="error">Kode salah! Hubungi admin.</div>
+<small>Kode contoh: CRW001<br>Hubungi kakak untuk dapat kode</small>
 </div>
-<a href="https://wa.me/6281234567890" class="bg-green-500 text-white px-3 py-1 rounded-full text-sm">Chat Admin</a>
-</header>
-<div class="p-6 text-center">
-<h1 class="text-xl font-bold">Belajar Jepang 0 - Mahir (25 Bab)</h1>
-<div class="bg-white p-4 rounded-xl mt-4 max-w-sm mx-auto shadow">
-<input id="kode" placeholder="Kode Akses Siswa" class="w-full border p-2 rounded">
-<button onclick="alert('Kalau kode CRW2026 = Berhasil!')" class="w-full bg-pink-500 text-white p-2 rounded mt-2">Masuk Sebagai Siswa</button>
-<p class="text-xs mt-2 text-gray-500">Tamu bisa lihat, siswa bisa buka</p>
-</div>
-</div>
-<div class="p-4 grid gap-3">
-<div class="bg-white p-4 rounded-xl shadow"><b>🎌 Budaya Jepang</b><br><small>12 artikel</small><br><button onclick="alert('Login dulu ya!')" class="text-pink-500 text-sm">🔒 Login untuk Baca</button></div>
-<div class="bg-white p-4 rounded-xl shadow"><b>📚 Pelajaran 25 Bab</b><div class="mt-2 text-sm"><div class="bg-pink-100 p-2 rounded">Bab 1: Aisatsu - Preview</div><div class="bg-gray-100 p-2 rounded mt-1">Bab 2: Kazoku 🔒</div><div class="bg-gray-100 p-2 rounded mt-1">Bab 3-25 🔒 Terkunci</div></div></div>
-<div class="bg-white p-4 rounded-xl shadow"><b>📖 Kamus</b><br><small>Kata Kerja, Benda, Sifat, Partikel</small></div>
-<div class="bg-white p-4 rounded-xl shadow"><b>⭐ Ulasan Siswa</b><br><small>"Belajarnya enak!" - Siswa</small></div>
-</div>
+<script>
+const kodeValid = ["CRW001","CRW002","CRW003","CRW-JAGO","MIHONGO","ADMIN"];
+function login(){
+  let k = document.getElementById("kode").value.trim().toUpperCase();
+  if(kodeValid.includes(k)){
+    localStorage.setItem("crw_login",k);
+    window.location.href="materi.html";
+  }else{
+    document.getElementById("err").style.display="block";
+  }
+}
+</script>
 </body>
 </html>
